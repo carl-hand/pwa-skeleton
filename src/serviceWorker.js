@@ -9,6 +9,10 @@
 
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
+const CACHE_NAME = 'static-cache-v1';
+const FILES_TO_CACHE = [
+  '/offline.html',
+];
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -30,6 +34,18 @@ export function register(config) {
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
       return;
     }
+
+    // TODO: fix this not firing off
+    window.addEventListener('install', (evt) => {
+      console.log('[ServiceWorker] Install');
+      evt.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
+          console.log('[ServiceWorker] Pre-caching offline page');
+          return cache.addAll(FILES_TO_CACHE);
+        })
+    );
+      window.skipWaiting();
+    });
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
