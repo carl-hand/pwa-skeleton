@@ -42,6 +42,10 @@ export class SignIn extends React.Component {
     });
   };
 
+  handleRegisterClick = () => {
+    this.props.showRegister();
+  }
+
   handleClick = () => {
     const { email, password } = this.state;
     const errors = this.hasErrors(email, password);
@@ -101,7 +105,7 @@ export class SignIn extends React.Component {
         >
           Log In
         </button>
-        <button className={registerButtonCss}>Register</button>
+        <button onClick={this.handleRegisterClick} className={registerButtonCss}>Register</button>
       </form>
     );
   }
