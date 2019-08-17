@@ -26,6 +26,10 @@ const toolbarLogoCss = css`
     color: white;
     text-decoration: none;
     font-size: 40px;
+  },
+
+  @media screen and (min-width: 769px) {
+    left: 0;
   }
 `;
 
@@ -61,10 +65,16 @@ const unorderedListCss = css`
   }
 `;
 
+const drawerToggleButtonContainerCss = css`
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+`;
+
 export const Toolbar = props => (
   <header className={toolbarHeaderCss}>
     <nav className={toolbarNavigationCss}>
-      <div>
+      <div className={drawerToggleButtonContainerCss}>
         <DrawerToggleButton
           handleToggleSideDrawer={props.handleToggleSideDrawer}
         />

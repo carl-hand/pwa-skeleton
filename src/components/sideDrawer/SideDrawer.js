@@ -13,6 +13,10 @@ const sideDrawerCss = css`
   z-index: 200;
   transform: translateX(-100%);
   transition: transform 0.3s ease-out;
+
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
 `;
 
 const unorderedListCss = css`
