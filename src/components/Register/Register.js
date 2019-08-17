@@ -1,27 +1,13 @@
 import React from 'react';
-import { css } from 'emotion';
 import { formContainerCss } from '../../sharedStyles/form';
 import { inputContainerCss, inputCss } from '../../sharedStyles/input';
 import { submitButtonCss } from '../../sharedStyles/button';
 
-const registerButtonCss = css`
-  position: relative;
-  top: 20px;
-  border: none;
-
-  &:hover,
-  &:focus,
-  &:active {
-    cursor: pointer;
-    outline: none;
-  }
-`;
-
-export class SignIn extends React.Component {
+export class Register extends React.Component {
   state = {
     email: '',
     password: '',
-    buttonType: 'button',
+    confirmPassword: '',
     errors: {},
   };
 
@@ -41,6 +27,14 @@ export class SignIn extends React.Component {
     });
   };
 
+  handleConfirmPasswordChange = evt => {
+    const confirmPassword = evt.target.value;
+
+    this.setState({
+      confirmPassword,
+    });
+  };
+
   handleClick = () => {
     const { email, password } = this.state;
     const errors = this.hasErrors(email, password);
@@ -49,7 +43,7 @@ export class SignIn extends React.Component {
       errors.emptyFieldsError = 'Please enter a value for all fields';
     } else {
       buttonType = 'submit';
-      this.props.submit();
+      // this.props.submit();
     }
 
     this.setState({
@@ -92,15 +86,23 @@ export class SignIn extends React.Component {
             id="password"
           />
         </div>
+        <div className={inputContainerCss}>
+          <input
+            className={inputCss}
+            placeholder="Confirm password"
+            onChange={this.handleConfirmPasswordChange}
+            type="password"
+            id="confirmPassword"
+          />
+        </div>
         {errorMessage}
         <button
           onClick={this.handleClick}
           className={submitButtonCss}
           type={buttonType}
         >
-          Log In
+          Register
         </button>
-        <button className={registerButtonCss}>Register</button>
       </form>
     );
   }
