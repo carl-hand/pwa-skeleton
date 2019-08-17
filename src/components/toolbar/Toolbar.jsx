@@ -1,35 +1,78 @@
-import React from 'react'
-import { css } from 'emotion'
+import React from 'react';
+import { css } from 'emotion';
 
 const toolbarHeaderCss = css`
-    width: 100%;
-    position: fixed;
-    background-color: #521751;
-`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #521751;
+  height: 56px;
+`;
 
-const toolbarNavigationCss = css``
+const toolbarNavigationCss = css`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 1px 10px;
+`;
 
-const toolbarLogoCss = css``
+const toolbarLogoCss = css`
+  & a {
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+  }
+`;
 
-const toolbarNavItemsCss = css``
+const toolbarNavItemContainerCss = css`
+  flex: 1;
+`;
+
+const unorderedListCss = css`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+
+  & li {
+    padding: 0 10px;
+  }
+`;
+
+const toolbarNavAnchorItemCss = css`
+  color: white;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    color: #fa923f;
+    cursor: pointer;
+  }
+`;
 
 export const Toolbar = props => (
-    <header className={toolbarHeaderCss}>
-        <nav className={toolbarNavigationCss}>
-            <div />
-            <div className={toolbarLogoCss}>
-                <a href="/">The Logo</a>
-            </div>
-            <div className={toolbarNavItemsCss}>
-                <ul>
-                    <li>
-                        <a href="/">Products</a>
-                    </li>
-                    <li>
-                        <a href="/">Users</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-)
+  <header className={toolbarHeaderCss}>
+    <nav className={toolbarNavigationCss}>
+      <div />
+      <div className={toolbarLogoCss}>
+        <a href="/">The Logo</a>
+      </div>
+      <div className={toolbarNavItemContainerCss}>
+        <ul className={unorderedListCss}>
+          <li>
+            <a className={toolbarNavAnchorItemCss} href="/">
+              Products
+            </a>
+          </li>
+          <li>
+            <a className={toolbarNavAnchorItemCss} href="/">
+              Users
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+);
