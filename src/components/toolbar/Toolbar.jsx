@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
+import { DrawerToggleButton } from '../sideDrawer/DrawerToggleButton';
 
 const toolbarHeaderCss = css`
   width: 100%;
@@ -18,6 +19,9 @@ const toolbarNavigationCss = css`
 `;
 
 const toolbarLogoCss = css`
+  position: relative;
+  left: 10px;
+  
   & a {
     color: white;
     text-decoration: none;
@@ -55,7 +59,9 @@ const toolbarNavAnchorItemCss = css`
 export const Toolbar = props => (
   <header className={toolbarHeaderCss}>
     <nav className={toolbarNavigationCss}>
-      <div />
+      <div>
+        <DrawerToggleButton />
+      </div>
       <div className={toolbarLogoCss}>
         <a href="/">The Logo</a>
       </div>
