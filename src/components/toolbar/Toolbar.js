@@ -72,7 +72,7 @@ export const Toolbar = props => (
   <header className={toolbarHeaderCss}>
     <nav className={toolbarNavigationCss}>
       <div>
-        <DrawerToggleButton />
+        <DrawerToggleButton handleToggleSideDrawer={props.handleToggleSideDrawer}/>
       </div>
       <div className={toolbarLogoCss}>
         <a href="/">The Logo</a>

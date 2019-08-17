@@ -25,10 +25,17 @@ const toggleButtonLineCss = css`
   background-color: white;
 `;
 
-export const DrawerToggleButton = props => (
-  <button className={toggleButtonCss}>
-    <div className={toggleButtonLineCss} />
-    <div className={toggleButtonLineCss} />
-    <div className={toggleButtonLineCss} />
-  </button>
-);
+export const DrawerToggleButton = props => {
+
+  const handleClick = () => {
+    props.handleToggleSideDrawer();
+  }
+
+  return (
+    <button onClick={handleClick} className={toggleButtonCss}>
+      <div className={toggleButtonLineCss} />
+      <div className={toggleButtonLineCss} />
+      <div className={toggleButtonLineCss} />
+    </button>
+  );
+};

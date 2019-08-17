@@ -11,4 +11,10 @@ const backdropCss = css`
   z-index: 100;
 `;
 
-export const Backdrop = props => <div className={backdropCss} />;
+export const Backdrop = props => {
+  const handleClick = () => {
+    props.handleToggleSideDrawer();
+  }
+
+  return <div className={backdropCss} onClick={handleClick} />;
+};

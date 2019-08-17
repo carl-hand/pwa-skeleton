@@ -14,17 +14,33 @@ const contentCss = css`
   top: 64px;
 `;
 
-function App() {
-  return (
-    <div className={appContainerCss}>
-      <Toolbar />
-      <SideDrawer />
-      <Backdrop />
-      <div className={contentCss}>
-        <p>This is the page content</p>
-      </div>
-    </div>
-  );
-}
+export class App extends React.Component {
+  state = {
+    isSideDrawerOpen: false,
+  };
 
-export default App;
+  toggleSideDrawer = () => {
+    this.setState((prevState) => {
+      return { isSideDrawerOpen: !prevState.isSideDrawerOpen };
+    });
+  }
+
+  render() {
+    let sideDrawer = null;
+    let backdrop = null;
+    if (this.state.isSideDrawerOpen) {
+      sideDrawer = <SideDrawer/>;
+      backdrop = <Backdrop handleToggleSideDrawer={this.toggleSideDrawer}/>;
+    }
+    return (
+      <div className={appContainerCss}>
+        <Toolbar handleToggleSideDrawer={this.toggleSideDrawer}/>
+        {sideDrawer}
+        {backdrop}
+        <div className={contentCss}>
+          <p>This is the page content</p>
+        </div>
+      </div>
+    );
+  }
+}
