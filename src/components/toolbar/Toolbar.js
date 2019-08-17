@@ -31,6 +31,10 @@ const toolbarLogoCss = css`
 
 const toolbarNavItemContainerCss = css`
   flex: 1;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const unorderedListCss = css`
@@ -61,7 +65,9 @@ export const Toolbar = props => (
   <header className={toolbarHeaderCss}>
     <nav className={toolbarNavigationCss}>
       <div>
-        <DrawerToggleButton handleToggleSideDrawer={props.handleToggleSideDrawer}/>
+        <DrawerToggleButton
+          handleToggleSideDrawer={props.handleToggleSideDrawer}
+        />
       </div>
       <div className={toolbarLogoCss}>
         <a href="/">The Logo</a>
@@ -69,14 +75,10 @@ export const Toolbar = props => (
       <div className={toolbarNavItemContainerCss}>
         <ul className={unorderedListCss}>
           <li>
-            <a href="/">
-              Products
-            </a>
+            <a href="/">Products</a>
           </li>
           <li>
-            <a href="/">
-              Users
-            </a>
+            <a href="/">Users</a>
           </li>
         </ul>
       </div>
