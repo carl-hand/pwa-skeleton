@@ -43,7 +43,6 @@ export class Register extends React.Component {
       errors.emptyFieldsError = 'Please enter a value for all fields';
     } else {
       buttonType = 'submit';
-      // this.props.submit();
     }
 
     this.setState({
