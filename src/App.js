@@ -26,16 +26,14 @@ export class App extends React.Component {
   }
 
   render() {
-    let sideDrawer = null;
     let backdrop = null;
     if (this.state.isSideDrawerOpen) {
-      sideDrawer = <SideDrawer/>;
       backdrop = <Backdrop handleToggleSideDrawer={this.toggleSideDrawer}/>;
     }
     return (
       <div className={appContainerCss}>
         <Toolbar handleToggleSideDrawer={this.toggleSideDrawer}/>
-        {sideDrawer}
+        <SideDrawer show={this.state.isSideDrawerOpen} />
         {backdrop}
         <div className={contentCss}>
           <p>This is the page content</p>

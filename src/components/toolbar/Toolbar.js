@@ -57,17 +57,6 @@ const unorderedListCss = css`
   }
 `;
 
-const toolbarNavAnchorItemCss = css`
-  color: white;
-  text-decoration: none;
-
-  &:hover,
-  &:active {
-    color: #fa923f;
-    cursor: pointer;
-  }
-`;
-
 export const Toolbar = props => (
   <header className={toolbarHeaderCss}>
     <nav className={toolbarNavigationCss}>

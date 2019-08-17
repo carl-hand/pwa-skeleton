@@ -11,6 +11,8 @@ const sideDrawerCss = css`
   width: 70%;
   max-width: 400px;
   z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
 `;
 
 const unorderedListCss = css`
@@ -31,22 +33,31 @@ const unorderedListCss = css`
 
     &:hover,
     &:focus,
-    &:active, {
+    &:active {
       cursor: pointer;
       color: #fa923f;
     }
   }
 `;
 
-export const SideDrawer = props => (
-  <nav className={sideDrawerCss}>
-    <ul className={unorderedListCss}>
-      <li>
-        <a href="/">Products</a>
-      </li>
-      <li>
-        <a href="/">Users</a>
-      </li>
-    </ul>
-  </nav>
-);
+const sideDrawerOpenCss = css`
+  transform: translateX(0);
+`;
+
+export const SideDrawer = props => {
+  let sideDrawerClasses = sideDrawerCss;
+  sideDrawerClasses += props.show ? ` ${sideDrawerOpenCss}` : '';
+
+  return (
+    <nav className={sideDrawerClasses}>
+      <ul className={unorderedListCss}>
+        <li>
+          <a href="/">Products</a>
+        </li>
+        <li>
+          <a href="/">Users</a>
+        </li>
+      </ul>
+    </nav>
+  );
+};
