@@ -1,7 +1,7 @@
 import React from 'react';
 import { formContainerCss } from '../../sharedStyles/form';
 import { inputContainerCss, inputCss } from '../../sharedStyles/input';
-import { submitButtonCss } from '../../sharedStyles/button';
+import { buttonCss } from '../../sharedStyles/button';
 
 export class Register extends React.Component {
   state = {
@@ -98,7 +98,7 @@ export class Register extends React.Component {
         {errorMessage}
         <button
           onClick={this.handleClick}
-          className={submitButtonCss}
+          className={buttonCss}
           type={buttonType}
         >
           Register

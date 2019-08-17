@@ -15,8 +15,7 @@ export class App extends React.Component {
   }
 
   render() {
-    // <SignIn submit={this.handleSubmit}/>
-    const component = this.state.isAuthenticated ? <Home /> : <Register />;
+    const component = this.state.isAuthenticated ? <Home /> : <SignIn submit={this.handleSubmit}/>;
     return <>{component}</>;
   }
 }

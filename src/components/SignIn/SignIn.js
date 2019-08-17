@@ -2,12 +2,13 @@ import React from 'react';
 import { css } from 'emotion';
 import { formContainerCss } from '../../sharedStyles/form';
 import { inputContainerCss, inputCss } from '../../sharedStyles/input';
-import { submitButtonCss } from '../../sharedStyles/button';
+import { buttonCss } from '../../sharedStyles/button';
 
 const registerButtonCss = css`
   position: relative;
-  top: 20px;
+  top: 30px;
   border: none;
+  font-size: 14px;
 
   &:hover,
   &:focus,
@@ -95,7 +96,7 @@ export class SignIn extends React.Component {
         {errorMessage}
         <button
           onClick={this.handleClick}
-          className={submitButtonCss}
+          className={buttonCss}
           type={buttonType}
         >
           Log In
