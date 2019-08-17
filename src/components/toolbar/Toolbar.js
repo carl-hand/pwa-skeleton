@@ -26,7 +26,7 @@ const toolbarLogoCss = css`
     color: white;
     text-decoration: none;
     font-size: 40px;
-  },
+  }
 
   @media screen and (min-width: 769px) {
     left: 0;

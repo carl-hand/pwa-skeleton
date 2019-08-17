@@ -1,44 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Toolbar } from './components/toolbar/Toolbar';
-import { css } from 'emotion';
-import { SideDrawer } from './components/sideDrawer/SideDrawer';
-import { Backdrop } from './components/backdrop/Backdrop';
-
-const appContainerCss = css`
-  height: 100%;
-`;
-const contentCss = css`
-  position: relative;
-  top: 64px;
-`;
+import { Home } from './components/home/Home';
+import { SignIn } from './components/SignIn/SignIn';
 
 export class App extends React.Component {
   state = {
-    isSideDrawerOpen: false,
+    isAuthenticated: false,
   };
 
-  toggleSideDrawer = () => {
-    this.setState((prevState) => {
-      return { isSideDrawerOpen: !prevState.isSideDrawerOpen };
+  handleSubmit = () => {
+    this.setState({
+      isAuthenticated: true,
     });
   }
 
   render() {
-    let backdrop = null;
-    if (this.state.isSideDrawerOpen) {
-      backdrop = <Backdrop handleToggleSideDrawer={this.toggleSideDrawer}/>;
-    }
-    return (
-      <div className={appContainerCss}>
-        <Toolbar handleToggleSideDrawer={this.toggleSideDrawer}/>
-        <SideDrawer show={this.state.isSideDrawerOpen} />
-        {backdrop}
-        <div className={contentCss}>
-          <p>This is the page content</p>
-        </div>
-      </div>
-    );
+    const component = this.state.isAuthenticated ? <Home /> : <SignIn submit={this.handleSubmit}/>;
+    return <>{component}</>;
   }
 }
