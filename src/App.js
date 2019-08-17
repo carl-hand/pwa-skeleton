@@ -4,6 +4,7 @@ import './App.css';
 import { Toolbar } from './components/toolbar/Toolbar';
 import { css } from 'emotion';
 import { SideDrawer } from './components/sideDrawer/SideDrawer';
+import { Backdrop } from './components/backdrop/Backdrop';
 
 const appContainerCss = css`
   height: 100%;
@@ -18,6 +19,7 @@ function App() {
     <div className={appContainerCss}>
       <Toolbar />
       <SideDrawer />
+      <Backdrop />
       <div className={contentCss}>
         <p>This is the page content</p>
       </div>

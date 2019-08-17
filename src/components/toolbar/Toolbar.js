@@ -21,7 +21,7 @@ const toolbarNavigationCss = css`
 const toolbarLogoCss = css`
   position: relative;
   left: 10px;
-  
+
   & a {
     color: white;
     text-decoration: none;
@@ -42,6 +42,18 @@ const unorderedListCss = css`
 
   & li {
     padding: 0 10px;
+  }
+
+  & a {
+    color: white;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #fa923f;
+      cursor: pointer;
+    }
   }
 `;
 
@@ -68,12 +80,12 @@ export const Toolbar = props => (
       <div className={toolbarNavItemContainerCss}>
         <ul className={unorderedListCss}>
           <li>
-            <a className={toolbarNavAnchorItemCss} href="/">
+            <a href="/">
               Products
             </a>
           </li>
           <li>
-            <a className={toolbarNavAnchorItemCss} href="/">
+            <a href="/">
               Users
             </a>
           </li>

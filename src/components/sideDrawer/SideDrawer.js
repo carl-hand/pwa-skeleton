@@ -8,13 +8,39 @@ const sideDrawerCss = css`
   position: fixed;
   top: 0;
   left: 0;
-  width: 400px;
+  width: 70%;
+  max-width: 400px;
   z-index: 200;
+`;
+
+const unorderedListCss = css`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+
+  & li {
+    margin: 10px 0;
+  }
+
+  & a {
+    color: #521751;
+    text-decoration: none;
+    font-size: 20px;
+
+    &:hover,
+    &:focus,
+    &:active, {
+      cursor: pointer;
+      color: #fa923f;
+    }
+  }
 `;
 
 export const SideDrawer = props => (
   <nav className={sideDrawerCss}>
-    <ul>
+    <ul className={unorderedListCss}>
       <li>
         <a href="/">Products</a>
       </li>
